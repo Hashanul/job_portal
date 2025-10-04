@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Applicant Dashboard</h2>
-<h3>Your Applications</h3>
-<ul class="list-group">
-    {% for application in applications %}
-        <li class="list-group-item">
-            {{ application.job.title }} at {{ application.job.company_name }} ({{ application.job.location }})
-            <br>
-            <strong>Status:</strong> Submitted
-        </li>
-    {% empty %}
-        <li class="list-group-item">No applications yet.</li>
-    {% endfor %}
-</ul>
+<div class="container mt-5">
+    <h2>Applicant Dashboard</h2>
+    <h3>Your Applications</h3>
+    <ul class="list-group">
+        {% for application in applications %}
+            <li class="list-group-item">
+                {{ application.job.title }} at {{ application.job.company_name }} ({{ application.job.location }})
+                <br>
+                <strong>Status:</strong> Submitted
+            </li>
+        {% empty %}
+            <li class="list-group-item">No applications yet.</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

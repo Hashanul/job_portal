@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Employer Dashboard</h2>
-<a href="{% url 'post_job' %}" class="btn btn-success mb-3">Post New Job</a>
-<h3>Your Jobs</h3>
-<ul class="list-group">
-    {% for job in jobs %}
-        <li class="list-group-item">
-            {{ job.title }} at {{ job.company_name }}
-            <a href="{% url 'view_applicants' job.pk %}" class="btn btn-info btn-sm float-end">View Applicants</a>
-        </li>
-    {% empty %}
-        <li class="list-group-item">No jobs posted yet.</li>
-    {% endfor %}
-</ul>
+<div class="container mt-5">
+    <h2>Employer Dashboard</h2>
+    <a href="{% url 'post_job' %}" class="btn btn-success mb-3">Post New Job</a>
+    <h3>Your Jobs</h3>
+    <ul class="list-group">
+        {% for job in jobs %}
+            <li class="list-group-item">
+                {{ job.title }} at {{ job.company_name }}
+                <a href="{% url 'view_applicants' job.pk %}" class="btn btn-info btn-sm float-end">View Applicants</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No jobs posted yet.</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

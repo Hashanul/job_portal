@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Job Listings</h2>
-<form method="get" class="mb-3">
+<div class="container mt-5">
+    <h2>Job Listings</h2>
+    <form method="get" class="mb-3">
     <input type="text" name="q" placeholder="Search jobs..." class="form-control" value="{{ request.GET.q }}">
-</form>
-<ul class="list-group">
-    {% for job in jobs %}
-        <li class="list-group-item">
-            <a href="{% url 'job_detail' job.pk %}">{{ job.title }}</a> at {{ job.company_name }} ({{ job.location }})
-        </li>
-    {% empty %}
-        <li class="list-group-item">No jobs found.</li>
-    {% endfor %}
-</ul>
+    </form>
+    <ul class="list-group">
+        {% for job in jobs %}
+            <li class="list-group-item">
+                <a href="{% url 'job_detail' job.pk %}">{{ job.title }}</a> at {{ job.company_name }} ({{ job.location }})
+            </li>
+        {% empty %}
+            <li class="list-group-item">No jobs found.</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
